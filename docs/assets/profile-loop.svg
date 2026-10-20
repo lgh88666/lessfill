@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title desc">
+  <title id="title">问清一次，下次少问一点</title>
+  <desc id="desc">Agent 发现资料缺口并提问，用户确认的事实保存到私人 profile.md，下一份申请读取复用。</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1l5 3-5 3" fill="none" stroke="#818cf8" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1280" height="430" rx="22" fill="url(#bg)"/>
+  <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+    <text x="48" y="52" fill="#0f172a" font-size="28" font-weight="700">问清一次，下次少问一点。</text>
+    <text x="48" y="83" fill="#64748b" font-size="15">从现有简历开始，用每次网申中真实遇到的问题，慢慢补齐你的私人资料。</text>
+    <g fill="white" stroke="#e2e8f0"><rect x="48" y="112" width="352" height="220" rx="16"/><rect x="464" y="112" width="352" height="220" rx="16" stroke="#c7d2fe"/><rect x="880" y="112" width="352" height="220" rx="16"/></g>
+    <path d="M416 222h30" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+    <path d="M832 222h30" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)"/>
+    <text x="70" y="147" fill="#6366f1" font-size="12" font-weight="600">01 / 回答真实缺项</text>
+    <rect x="70" y="166" width="308" height="66" rx="11" fill="#f1f5f9"/>
+    <text x="84" y="190" fill="#64748b" font-size="12">Agent</text>
+    <text x="84" y="214" fill="#1e293b" font-size="16">这段实习属于哪个部门？</text>
+    <rect x="118" y="244" width="260" height="64" rx="11" fill="#eef2ff"/>
+    <text x="132" y="267" fill="#4f46e5" font-size="12">你</text>
+    <text x="132" y="291" fill="#3730a3" font-size="15">研发部，补到我的资料里。</text>
+    <text x="486" y="147" fill="#6366f1" font-size="12" font-weight="600">02 / 写回个人信息文档</text>
+    <rect x="486" y="166" width="308" height="142" rx="11" fill="#111827"/>
+    <circle cx="504" cy="185" r="3" fill="#818cf8"/>
+    <text x="516" y="190" fill="#c7d2fe" font-size="13" font-family="Consolas, monospace">profile.md</text>
+    <path d="M500 202h280" stroke="#334155"/>
+    <text x="502" y="228" fill="#e2e8f0" font-size="15">实习经历 / 对应条目</text>
+    <text x="502" y="254" fill="#a5b4fc" font-size="15">部门：研发部</text>
+    <text x="502" y="286" fill="#94a3b8" font-size="12">来源：用户明确确认 · 按需更新</text>
+    <text x="902" y="147" fill="#6366f1" font-size="12" font-weight="600">03 / 下一份网申直接复用</text>
+    <text x="902" y="187" fill="#475569" font-size="13">实习部门</text>
+    <rect x="902" y="199" width="308" height="45" rx="9" fill="#f8fafc" stroke="#e2e8f0"/>
+    <text x="916" y="228" fill="#1e293b" font-size="16">研发部</text>
+    <circle cx="1186" cy="221" r="10" fill="#dcfce7"/>
+    <path d="M1181 221l3 3 6-7" fill="none" stroke="#16a34a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="902" y="280" fill="#475569" font-size="14">先读文档，不再重复问已知答案。</text>
+    <text x="902" y="303" fill="#94a3b8" font-size="12">未知项继续询问，不猜填。</text>
+    <path d="M1056 346v16a10 10 0 0 1-10 10H234a10 10 0 0 1-10-10v-13" fill="none" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+    <rect x="470" y="358" width="340" height="27" rx="13" fill="#eef2ff"/>
+    <text x="640" y="376" text-anchor="middle" fill="#6366f1" font-size="12">新的缺项，新的补充；下一次继续读取。</text>
+    <text x="640" y="408" text-anchor="middle" fill="#64748b" font-size="12">只保存已确认、可复用的事实；本次岗位的临时答案单独记录。图中内容为虚构示例。</text>
+  </g>
+</svg>
