@@ -1,9 +1,18 @@
 ---
 name: resume-autofill
 description: 根据用户提供的简历文件或链接填写招聘网申、上传简历和照片并登记飞书投递表。支持 Chrome＋Jev 和 Edge＋Playwright；首次使用可初始化私人资料及飞书表格，后续复用。默认允许保存，不自动提交申请。
+license: MIT
+metadata:
+  requirements: File access and browser control through Jev or Playwright. Uploads require file transfer support. Feishu MCP is optional. Codex-specific APIs are not required.
 ---
 
 # 网申填写与投递记录
+
+## 宿主与工具适配
+
+本 skill 使用 Agent Skills 的 `SKILL.md` 入口，核心流程不依赖特定模型、操作系统、Codex UI 或固定 MCP 工具名。可以由宿主原生技能加载器调用，也可以由具备文件读取能力的 Agent 直接读取本文件和按需参考文件执行。`agents/openai.yaml` 仅供 Codex 展示使用，其他宿主可忽略。
+
+首次在新宿主运行时，按[跨 Agent 工具适配](references/agent-integration.md)把当前实际能力映射到文件读取/写入、浏览器会话、字段操作、上传与可选飞书操作。有效映射在当前连接中复用，不在每轮重新探测。`cua_repl`、`sky`、`jev_task` 等名字只代表可选适配方式，不能因为其中某个名字不存在就宣布不能填表。按实际工具 schema 使用等价能力，不臆造 API，不为适配安装额外服务。遵守当前宿主和用户的权限要求。
 
 ## 入口与私人状态
 

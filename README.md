@@ -28,6 +28,8 @@ LessFill 把这些重复步骤整理成一套可复用的 Agent Skill。你提�
 
 它是一套供 AI 工具执行的工作流程。**需要你的 AI 工具具备文件读取、浏览器控制等能力，安装 skill 不会自动安装浏览器插件或开通账号。**
 
+LessFill 使用 [Agent Skills](https://agentskills.io/specification) 目录格式。支持该格式的 Agent 可原生加载；具备文件读取和浏览器工具的其他 Agent，也可直接读取 `SKILL.md` 执行。底层模型可以不同，实际操作能力由你使用的 Agent / harness 提供。
+
 ## 一眼看懂整个流程
 
 <img src="docs/assets/workflow-story.png" alt="三幕概念插画：求职者准备简历和照片，AI 协助填写网申并整理记录，求职者最后检查并确认提交" width="100%" />
@@ -52,6 +54,29 @@ LessFill 把这些重复步骤整理成一套可复用的 Agent Skill。你提�
 
 项目名称是 LessFill，安装后的 skill 名称为 `resume-autofill`，下方示例可直接使用。
 
+**跨 Agent 安装**，有 Node.js 环境时可以使用 [Skills CLI](https://www.skills.sh/docs/cli)，按提示选择目标 Agent 和安装范围：
+
+```sh
+npx skills add lgh88666/lessfill
+```
+
+这是可选的第三方安装工具，不是运行依赖。
+
+<details>
+<summary><strong>手动安装、Codex 安装，以及没有原生 Skill 功能的 Agent</strong></summary>
+
+也可下载仓库，按对应 Agent 的官方文档放置整个 `resume-autofill/` 目录：
+
+|Agent / 使用方式|放置或调用方式|
+|:---|:---|
+|[Claude Code](https://code.claude.com/docs/en/skills)|项目内 `.claude/skills/resume-autofill/`，可用 `/resume-autofill` 调用|
+|[Cursor](https://cursor.com/docs/skills)|项目内 `.cursor/skills/resume-autofill/`，由 Agent 加载使用|
+|[OpenCode](https://opencode.ai/docs/skills/)|项目内 `.opencode/skills/resume-autofill/`，由技能工具加载|
+|Codex|使用下面的 `skill-installer` 入口，或放进已配置的技能目录|
+|其他 / 自建 Agent|原生加载 Agent Skills，或按下方通用提示直接读取文件|
+
+表中是各客户端公开的加载方式，不代表本项目已经完成这些客户端的端到端实测。浏览器和附件能力需要分别接好。
+
 **在 Codex 中**，可以把这句话发给支持技能安装的会话：
 
 ```text
@@ -63,6 +88,19 @@ https://github.com/lgh88666/lessfill/tree/main/resume-autofill
 **使用其他 AI 工具**，下载本仓库，将 [`resume-autofill/`](resume-autofill/) 放进该工具支持的技能目录。实际入口是 [`SKILL.md`](resume-autofill/SKILL.md)；支持读取本地文件的 agent 也可以按你的指示读取它。Codex 的界面元数据位于 `agents/openai.yaml`，其他工具可以忽略。
 
 安装方式以你的宿主工具为准。可参考 [OpenAI 的技能说明](https://learn.chatgpt.com/docs/build-skills)。
+
+**不支持原生 skill 的 Agent**，也可以在下载后这样调用：
+
+```text
+请读取 <本地仓库绝对路径>/resume-autofill/SKILL.md，并按需读取它引用的文件。
+使用你当前实际提供的文件工具和浏览器工具执行，不依赖 Codex 专用接口。
+先读取我的私人配置：<config.json 的路径；首次使用可省略>
+填写这个网申：<招聘网址>。允许上传及保存，不提交。
+```
+
+DeepSeek 等模型可以通过具备这些工具的 harness 执行流程；仅更换聊天模型不会自动获得浏览器能力。跨 Agent 适配规则见[工具适配说明](resume-autofill/references/agent-integration.md)。
+
+</details>
 
 ### 2. 准备一个浏览器连接
 

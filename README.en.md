@@ -28,6 +28,8 @@ LessFill turns those repetitive steps into a reusable Agent Skill. Give it your 
 
 This is a workflow for an AI agent to follow. **Your AI tool needs file access and browser control. Installing the skill does not install browser extensions or set up service accounts.**
 
+LessFill uses the [Agent Skills](https://agentskills.io/specification) directory format. Agents that support it can load the skill natively. Other agents with file access and browser tools can read `SKILL.md` directly. You can use different underlying models; the agent or harness supplies the actual tools.
+
 ## The workflow at a glance
 
 <img src="docs/assets/workflow-story.png" alt="Three illustrated scenes: a job seeker prepares a resume and photo, an AI assistant fills an application and organizes records, and the job seeker reviews and confirms submission" width="100%" />
@@ -52,6 +54,29 @@ By default, it can upload your authorized resume and photo and save drafts. **It
 
 The project is called LessFill. Its installed skill name is `resume-autofill`, which is used in the prompts below.
 
+**For a cross-agent installer**, you can use the optional [Skills CLI](https://www.skills.sh/docs/cli) if Node.js is available. Follow its prompts to select a target agent and installation scope:
+
+```sh
+npx skills add lgh88666/lessfill
+```
+
+This third-party installer is optional, not a runtime dependency.
+
+<details>
+<summary><strong>Manual installation, Codex, and agents without a native skill loader</strong></summary>
+
+You can also download the repository and place the entire `resume-autofill/` folder according to your agent's documentation:
+
+|Agent / method|Where to place it or how to invoke it|
+|:---|:---|
+|[Claude Code](https://code.claude.com/docs/en/skills)|Project directory `.claude/skills/resume-autofill/`; invoke with `/resume-autofill`|
+|[Cursor](https://cursor.com/docs/skills)|Project directory `.cursor/skills/resume-autofill/`; let the agent load it|
+|[OpenCode](https://opencode.ai/docs/skills/)|Project directory `.opencode/skills/resume-autofill/`; load through its skill tool|
+|Codex|Use `skill-installer` below or your configured skill directory|
+|Other / custom agents|Use native Agent Skills loading or the direct-file prompt below|
+
+These are documented loading methods, not claims of completed end-to-end testing for each client. Browser control and uploads still need their own working tools.
+
 **In Codex**, send this to a session that supports skill installation:
 
 ```text
@@ -63,6 +88,20 @@ If a skill with the same name already exists, tell me before replacing it.
 **With another AI tool**, download this repository and put [`resume-autofill/`](resume-autofill/) in that tool's supported skill directory. [`SKILL.md`](resume-autofill/SKILL.md) is the entry point. An agent with local file access can also read it when you explicitly ask. `agents/openai.yaml` contains Codex UI metadata and can be ignored by other tools.
 
 Follow your host tool's installation instructions. See also [OpenAI's skills guide](https://learn.chatgpt.com/docs/build-skills). The executable skill instructions and detailed references are currently maintained in Chinese; this README provides the complete English user guide.
+
+**If your agent has no native skill loader**, download the repository and use a prompt like this:
+
+```text
+Read <absolute local repo path>/resume-autofill/SKILL.md,
+then read its referenced files only as needed.
+Use your available file and browser tools, without requiring Codex-specific APIs.
+Read my private configuration: <config.json path; omit on first use>
+Fill this application: <application URL>. Uploads and saving are allowed. Do not submit.
+```
+
+Models such as DeepSeek can follow this workflow through a harness that provides the necessary tools. Changing the chat model alone does not provide browser control. See the [agent integration reference](resume-autofill/references/agent-integration.md) (Chinese) for the capability contract.
+
+</details>
 
 ### 2. Connect a browser
 
