@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "resume": { "source": null, "cached_path": null },
+  "photo": { "source": null, "cached_path": null },
+  "profile_path": "profile.md",
+  "browser": { "mode": "edge-playwright" },
+  "actions": {
+    "upload_resume": true,
+    "upload_photo": true,
+    "save": true,
+    "submit": false,
+    "final_review": "user"
+  },
+  "tracker": {
+    "enabled": true,
+    "provider": "feishu",
+    "transport": null,
+    "allow_browser_fallback": false,
+    "create_on_first_use": true,
+    "name": "求职投递记录",
+    "table_name": "投递记录",
+    "state_path": "tracker-state.json",
+    "applications_path": "applications.json",
+    "existing_url": null,
+    "folder_token": null,
+    "timezone": "Asia/Shanghai",
+    "status_after_fill": "待提交",
+    "date_on_fill": false,
+    "placement": "default"
+  },
+  "consent": {
+    "scope": "用户明确指定的招聘申请",
+    "data_and_uploads_authorized": false,
+    "tracker_creation_authorized": false,
+    "tracker_logging_authorized": false
+  }
+}

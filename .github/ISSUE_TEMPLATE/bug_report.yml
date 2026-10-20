@@ -1,0 +1,44 @@
+name: 页面卡住或填写异常
+description: 帮我们定位连接、字段、附件或飞书记录的问题。
+title: "[Bug] "
+body:
+  - type: markdown
+    attributes:
+      value: "感谢反馈。请只提供脱敏信息，不上传真实简历、完整私人配置、cookie 或密钥。"
+  - type: input
+    id: host
+    attributes:
+      label: 使用的 AI 工具及版本
+      placeholder: 例如 Codex 桌面端，版本……
+    validations:
+      required: true
+  - type: dropdown
+    id: browser
+    attributes:
+      label: 浏览器路线
+      options:
+        - Edge＋Playwright
+        - Chrome＋Jev
+        - 其他或不确定
+    validations:
+      required: true
+  - type: dropdown
+    id: tracker
+    attributes:
+      label: 飞书操作方式
+      options:
+        - 浏览器
+        - 飞书 MCP
+        - 未启用或与飞书无关
+  - type: textarea
+    id: problem
+    attributes:
+      label: 卡在哪一步？
+      description: 描述预期结果和实际结果，附脱敏后的错误提示。招聘链接请去掉 token、授权 code 和个人标识。
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 如何复现？
+      placeholder: "1. 打开……\n2. 选择……\n3. 出现……"

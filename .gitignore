@@ -1,0 +1,25 @@
+# User data and runtime state must stay private.
+.resume-autofill/
+private/
+config.local.*
+.env
+.env.*
+!.env.example
+*.pdf
+*.doc
+*.docx
+*.png
+*.jpg
+*.jpeg
+*.webp
+*.heic
+*.log
+*.har
+*.pem
+*.key
+credentials*.json
+.playwright-mcp/
+node_modules/
+__pycache__/
+.DS_Store
+Thumbs.db

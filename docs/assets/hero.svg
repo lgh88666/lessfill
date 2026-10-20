@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="420" viewBox="0 0 1280 420" role="img" aria-labelledby="title desc">
+  <title id="title">Resume Autofill</title>
+  <desc id="desc">A resume becomes an online application and a personal application tracker. You review and submit.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#1e293b" flood-opacity="0.08"/></filter>
+  </defs>
+  <rect width="1280" height="420" rx="24" fill="url(#bg)"/>
+  <circle cx="1250" cy="10" r="240" fill="#e0e7ff" opacity="0.45"/>
+  <circle cx="-10" cy="440" r="180" fill="#dbeafe" opacity="0.45"/>
+  <g font-family="Inter, Segoe UI, Arial, sans-serif">
+    <rect x="56" y="50" width="30" height="30" rx="9" fill="url(#accent)"/>
+    <path d="M65 59h7a5 5 0 0 1 0 10h-7zm7 10 6 5" fill="none" stroke="white" stroke-width="2.2" stroke-linejoin="round"/>
+    <text x="99" y="71" font-size="20" fill="#1e293b" font-weight="650">RESUME AUTOFILL</text>
+    <text x="56" y="140" font-size="43" fill="#0f172a" font-weight="750" letter-spacing="-1.5">One resume. Less repetition.</text>
+    <text x="57" y="177" font-size="17" fill="#64748b">Bring your resume. Let your agent handle the repetitive parts.</text>
+    <g filter="url(#shadow)">
+      <rect x="56" y="218" width="314" height="144" rx="16" fill="white" stroke="#e2e8f0"/>
+      <rect x="483" y="218" width="314" height="144" rx="16" fill="white" stroke="#c7d2fe"/>
+      <rect x="910" y="218" width="314" height="144" rx="16" fill="white" stroke="#e2e8f0"/>
+    </g>
+    <g fill="none" stroke="#94a3b8" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M394 290h62m-8-7 8 7-8 7"/><path d="M821 290h62m-8-7 8 7-8 7"/></g>
+    <rect x="78" y="240" width="40" height="40" rx="11" fill="#eff6ff"/>
+    <path d="M90 250h11l5 5v16H90zm11 0v6h5m-12 5h8m-8 5h8" fill="none" stroke="#2563eb" stroke-width="1.7" stroke-linejoin="round"/>
+    <rect x="505" y="240" width="40" height="40" rx="11" fill="#eef2ff"/>
+    <path d="M515 251h20v18h-20zm0 5h20m-15 5h5m-5 4h10" fill="none" stroke="#4f46e5" stroke-width="1.7" stroke-linejoin="round"/>
+    <rect x="932" y="240" width="40" height="40" rx="11" fill="#ecfdf5"/>
+    <path d="M942 251h20v18h-20zm0 6h20m-13-6v18m6-18v18" fill="none" stroke="#059669" stroke-width="1.7" stroke-linejoin="round"/>
+    <text x="130" y="265" font-size="18" font-weight="650" fill="#0f172a">Your resume</text>
+    <text x="557" y="265" font-size="18" font-weight="650" fill="#0f172a">Online application</text>
+    <text x="984" y="265" font-size="18" font-weight="650" fill="#0f172a">Your Feishu tracker</text>
+    <text x="79" y="310" font-size="14" fill="#64748b">Import facts · Attach files</text>
+    <text x="506" y="310" font-size="14" fill="#64748b">Fill sections · Save drafts</text>
+    <text x="933" y="310" font-size="14" fill="#64748b">Create once · Keep using it</text>
+    <text x="79" y="338" font-size="12" fill="#94a3b8">01 / SOURCE</text>
+    <text x="506" y="338" font-size="12" fill="#6366f1">02 / ASSIST</text>
+    <text x="933" y="338" font-size="12" fill="#059669">03 / REMEMBER</text>
+    <text x="56" y="395" font-size="12" fill="#64748b">Chrome + Jev  /  Edge + Playwright</text>
+    <text x="1224" y="395" text-anchor="end" font-size="12" fill="#64748b">You review. You submit.</text>
+  </g>
+</svg>
