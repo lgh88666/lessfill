@@ -30,6 +30,10 @@ LessFill turns those repetitive steps into a reusable Agent Skill. Give it your 
 
 This is a workflow for an AI agent to follow. **Your AI tool needs file access and browser control. Installing the skill does not install browser extensions or set up service accounts.**
 
+## The workflow at a glance
+
+<img src="docs/assets/workflow.en.svg" alt="Provide your resume, photo and application URL; build your profile; choose Chrome with Jev or Edge with Playwright; fill, upload and save; optionally track in Feishu by browser or MCP; you review and submit" width="100%" />
+
 ## What you provide, what it handles
 
 |You provide|The skill handles|

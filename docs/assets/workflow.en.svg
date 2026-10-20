@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="572" viewBox="0 0 1280 572" role="img" aria-labelledby="title desc">
+  <title id="title">From one resume to a complete application</title>
+  <desc id="desc">Your agent handles repetitive steps. You confirm the facts and make the final submission. Choose a browser route and a Feishu method independently.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8fafc"/><stop offset="1" stop-color="#eef2ff"/></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1l5 3-5 3" fill="none" stroke="#818cf8" stroke-width="1.5"/></marker>
+  </defs>
+  <rect width="1280" height="572" rx="22" fill="url(#bg)"/>
+  <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+    <text x="40" y="48" fill="#0f172a" font-size="28" font-weight="700">From one resume to a complete application</text>
+    <text x="40" y="79" fill="#64748b" font-size="15">Your agent handles repetitive steps. You confirm the facts and make the final submission.</text>
+    <g fill="white" stroke="#e2e8f0">
+      <rect x="40" y="110" width="244" height="126" rx="14"/>
+      <rect x="324" y="110" width="244" height="126" rx="14"/>
+      <rect x="608" y="110" width="244" height="126" rx="14" stroke="#c7d2fe"/>
+      <rect x="892" y="110" width="344" height="126" rx="14" stroke="#c7d2fe"/>
+    </g>
+    <g stroke="#818cf8" stroke-width="1.8" fill="none" marker-end="url(#arrow)">
+      <path d="M292 173h24"/><path d="M576 173h24"/><path d="M860 173h24"/>
+      <path d="M1064 236v60"/>
+      <path d="M1064 264H395v32"/>
+    </g>
+    <g fill="#6366f1" font-size="11" font-weight="600">
+      <text x="58" y="134">01 / INPUT</text><text x="342" y="134">02 / PROFILE</text><text x="626" y="134">03 / BROWSER</text><text x="910" y="134">04 / ASSIST</text>
+    </g>
+    <g fill="#0f172a" font-size="18" font-weight="650">
+      <text x="58" y="163">Provide files and a link</text><text x="342" y="163">Build your private profile</text><text x="626" y="163">Choose your browser</text><text x="910" y="163">Fill, upload, and save</text>
+    </g>
+    <g fill="#64748b" font-size="12">
+      <text x="58" y="191">Resume path or accessible URL</text><text x="58" y="213">Optional photo + application link</text>
+      <text x="342" y="191">Read your resume and profile.md</text><text x="342" y="213">Ask, confirm, and save missing facts</text>
+      <text x="910" y="191">Fill the actual fields in batches</text><text x="910" y="213">Upload attachments. Save a draft.</text>
+    </g>
+    <rect x="626" y="176" width="208" height="22" rx="7" fill="#eef2ff"/>
+    <rect x="626" y="204" width="208" height="22" rx="7" fill="#eff6ff"/>
+    <text x="730" y="192" text-anchor="middle" fill="#4f46e5" font-size="12">Chrome + Jev</text>
+    <text x="730" y="220" text-anchor="middle" fill="#2563eb" font-size="12">Edge + Playwright</text>
+    <rect x="485" y="251" width="210" height="25" rx="12" fill="#eef2ff"/>
+    <text x="590" y="268" text-anchor="middle" fill="#6366f1" font-size="12">If tracking is enabled</text>
+    <rect x="40" y="304" width="710" height="160" rx="16" fill="white" stroke="#e2e8f0"/>
+    <text x="62" y="338" fill="#0f172a" font-size="20" font-weight="650">Feishu tracker · Optional</text>
+    <rect x="62" y="353" width="200" height="32" rx="9" fill="#f1f5f9"/>
+    <text x="162" y="374" text-anchor="middle" fill="#475569" font-size="13">Browser automation</text>
+    <rect x="278" y="353" width="170" height="32" rx="9" fill="#eef2ff"/>
+    <text x="363" y="374" text-anchor="middle" fill="#4f46e5" font-size="13">Feishu MCP</text>
+    <text x="62" y="412" fill="#64748b" font-size="13">Create once with permission. Reuse it later.</text>
+    <rect x="62" y="426" width="90" height="24" rx="12" fill="#f1f5f9"/><text x="107" y="443" text-anchor="middle" fill="#64748b" font-size="12">Filling</text>
+    <text x="165" y="443" fill="#94a3b8" font-size="14">→</text>
+    <rect x="190" y="426" width="136" height="24" rx="12" fill="#fef3c7"/><text x="258" y="443" text-anchor="middle" fill="#b45309" font-size="12">Ready to submit</text>
+    <text x="339" y="443" fill="#94a3b8" font-size="14">→</text>
+    <rect x="364" y="426" width="105" height="24" rx="12" fill="#dcfce7"/><text x="416" y="443" text-anchor="middle" fill="#15803d" font-size="12">Submitted</text>
+    <rect x="892" y="304" width="344" height="160" rx="16" fill="#eef2ff" stroke="#c7d2fe"/>
+    <text x="914" y="338" fill="#3730a3" font-size="20" font-weight="650">You review and submit</text>
+    <text x="914" y="378" fill="#475569" font-size="14">You do the final content review</text>
+    <text x="914" y="406" fill="#475569" font-size="14">The agent stops before submission</text>
+    <path d="M1064 464v36a8 8 0 0 1-8 8H403a8 8 0 0 1-8-8v-28" stroke="#a5b4fc" stroke-width="1.5" fill="none" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+    <rect x="480" y="494" width="490" height="28" rx="14" fill="#eef2ff"/>
+    <text x="725" y="513" text-anchor="middle" fill="#6366f1" font-size="12">After you confirm submission, update the same record</text>
+    <text x="640" y="550" text-anchor="middle" fill="#64748b" font-size="12">Choose a browser route and a Feishu method independently.</text>
+  </g>
+</svg>

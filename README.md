@@ -30,6 +30,10 @@ LessFill 把这些重复步骤整理成一套可复用的 Agent Skill。你提�
 
 它是一套供 AI 工具执行的工作流程。**需要你的 AI 工具具备文件读取、浏览器控制等能力，安装 skill 不会自动安装浏览器插件或开通账号。**
 
+## 一眼看懂整个流程
+
+<img src="docs/assets/workflow.svg" alt="提供简历、照片和招聘链接，完善个人资料，选择 Chrome＋Jev 或 Edge＋Playwright，填表上传并保存；可选浏览器或 MCP 登记飞书，最终由用户检查提交" width="100%" />
+
 ## 你提供什么，它做什么
 
 |你提供|Skill 处理|
