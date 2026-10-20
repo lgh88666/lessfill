@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="docs/assets/hero.svg" alt="LessFill — One resume. Less repetition." width="100%" />
-
 # LessFill
 
 [简体中文](README.md) · **English**

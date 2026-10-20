@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="docs/assets/hero.svg" alt="LessFill — 少填一点，把时间留给面试" width="100%" />
-
 # LessFill
 
 **简体中文** · [English](README.en.md)
