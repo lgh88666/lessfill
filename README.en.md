@@ -30,7 +30,9 @@ This is a workflow for an AI agent to follow. **Your AI tool needs file access a
 
 ## The workflow at a glance
 
-<img src="docs/assets/workflow.en.svg" alt="Provide your resume, photo and application URL; build your profile; choose Chrome with Jev or Edge with Playwright; fill, upload and save; optionally track in Feishu by browser or MCP; you review and submit" width="100%" />
+<img src="docs/assets/workflow-story.png" alt="Three illustrated scenes: a job seeker prepares a resume and photo, an AI assistant fills an application and organizes records, and the job seeker reviews and confirms submission" width="100%" />
+
+<p align="center"><sub>You provide the details → AI fills and organizes → You review and submit. Concept illustration, not an actual product screenshot.</sub></p>
 
 ## What you provide, what it handles
 

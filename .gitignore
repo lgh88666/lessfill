@@ -9,6 +9,7 @@ config.local.*
 *.doc
 *.docx
 *.png
+!/docs/assets/workflow-story.png
 *.jpg
 *.jpeg
 *.webp

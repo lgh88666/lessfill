@@ -30,7 +30,9 @@ LessFill 把这些重复步骤整理成一套可复用的 Agent Skill。你提�
 
 ## 一眼看懂整个流程
 
-<img src="docs/assets/workflow.svg" alt="提供简历、照片和招聘链接，完善个人资料，选择 Chrome＋Jev 或 Edge＋Playwright，填表上传并保存；可选浏览器或 MCP 登记飞书，最终由用户检查提交" width="100%" />
+<img src="docs/assets/workflow-story.png" alt="三幕概念插画：求职者准备简历和照片，AI 协助填写网申并整理记录，求职者最后检查并确认提交" width="100%" />
+
+<p align="center"><sub>你准备资料 → AI 填写、整理记录 → 你检查、提交。概念插画，并非实际界面截图。</sub></p>
 
 ## 你提供什么，它做什么
 
