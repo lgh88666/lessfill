@@ -6,7 +6,7 @@
 
 **多留一点时间准备面试**
 
-让 AI 根据你的简历填写网申、上传附件，再把每次申请记进你自己的飞书表格。
+让 AI 根据你的简历填写网申、上传附件，再把每次申请记录进你的求职表格。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)](LICENSE)
 [![Type: Agent Skill](https://img.shields.io/badge/Type-Agent_Skill-7c3aed?style=flat-square)](resume-autofill/SKILL.md)
