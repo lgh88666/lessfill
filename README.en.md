@@ -8,6 +8,8 @@
 
 Let your AI agent fill application forms from your resume, upload attachments, and keep your applications in your own Feishu table.
 
+Designed around **WorkBuddy and Doubao desktop's Work Tasks / Skills** use cases, with loading options for other agents too.
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)](LICENSE)
 [![Type: Agent Skill](https://img.shields.io/badge/Type-Agent_Skill-7c3aed?style=flat-square)](resume-autofill/SKILL.md)
 [![Status: Workflow Preview](https://img.shields.io/badge/Status-Workflow_Preview-d97706?style=flat-square)](#current-status)
@@ -43,7 +45,7 @@ LessFill uses the [Agent Skills](https://agentskills.io/specification) directory
 |A resume file path or accessible link|Extracts relevant facts for reuse; your corrections take priority over an older resume|
 |An optional photo|Uploads it when the form requires it and the tools support it; never substitutes a resume screenshot|
 |A job application link|Identifies the company, role, and fields; fills sections without adding duplicate experience entries|
-|Your browser choice|Uses Chrome + Jev or Edge + Playwright in the corresponding session|
+|Your browser choice|Reuses tools already available in the work task, or connects Chrome + Jev / Edge + Playwright|
 |Your Feishu preference|Creates a table after initial authorization, then reuses it for future applications|
 
 By default, it can upload your authorized resume and photo and save drafts. **It does not submit applications, solve CAPTCHAs, or sign for you.** Missing facts are left blank or asked about, rather than inventing experience, grades, or dates.
@@ -54,6 +56,20 @@ By default, it can upload your authorized resume and photo and save drafts. **It
 
 The project is called LessFill. Its installed skill name is `resume-autofill`, which is used in the prompts below.
 
+**Using WorkBuddy or Doubao desktop? Start here. No command line is needed to follow these steps.**
+
+|Your tool|Start here|
+|:---|:---|
+|**WorkBuddy**|[Download the WorkBuddy package](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-workbuddy.zip), then import and enable it through Skills → Add Skill → Upload Skill|
+|**Doubao desktop · Work Tasks / Skills**|[Download the general package](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip) and use the import or creation entry available in your version; [read the walkthrough](docs/workbuddy-doubao.en.md#doubao-desktop-work-tasks--skills)|
+
+Both require actual webpage editing, file access, and upload tools in the current task. **Importing a skill does not provide those tools automatically.** Doubao's local import entry can vary by version; client import and form filling have not been verified for this package. Ordinary Doubao chat is not presented as an execution environment.
+
+[WorkBuddy / Doubao walkthrough](docs/workbuddy-doubao.en.md) · [Downloads and version notes](https://github.com/lgh88666/lessfill/releases/tag/v0.1.0-preview.1)
+
+<details>
+<summary><strong>Other agents: CLI installation, manual installation, and direct invocation</strong></summary>
+
 **For a cross-agent installer**, you can use the optional [Skills CLI](https://www.skills.sh/docs/cli) if Node.js is available. Follow its prompts to select a target agent and installation scope:
 
 ```sh
@@ -61,9 +77,6 @@ npx skills add lgh88666/lessfill
 ```
 
 This third-party installer is optional, not a runtime dependency.
-
-<details>
-<summary><strong>Manual installation and invocation across agents</strong></summary>
 
 You can also download the repository and place the entire `resume-autofill/` folder according to your agent's documentation:
 
@@ -106,7 +119,9 @@ Models such as DeepSeek can follow this workflow through a harness that provides
 
 ### 2. Connect a browser
 
-Pick the route that fits your existing setup:
+In WorkBuddy or Doubao Work Tasks, first let the agent check its already authorized browser or webpage tools. If they work, no extra connection is needed just for LessFill.
+
+If browser control is missing and you choose to connect an external tool, use a route that fits your setup:
 
 - **Chrome + Jev:** Set up Jev and sign in to the career site in the Chrome session it actually controls.
 - **Edge + Playwright:** Connect your existing Edge session. A working built-in Playwright interface can be reused directly; a separate MCP extension connection may require an initial tab selection.
@@ -122,7 +137,7 @@ Use resume-autofill to fill this application: <application URL>
 
 Resume: <local file path or download link>
 Photo: <local file path or download link; optional for now>
-Browser: Edge + Playwright
+Browser: Prefer the webpage tools already authorized in this work task
 Feishu: Use the browser, without Feishu MCP
 
 You may enter the supplied information on this recruiting site,
@@ -177,6 +192,7 @@ These are useful details to fill in over time:
 
 |Route|A good fit when|What to know first|
 |:---|:---|:---|
+|**Host-provided browser tools**|You use a desktop agent such as WorkBuddy or Doubao Work Tasks|Check actual editing and upload capabilities; reading a page is not the same as filling it|
 |**Chrome + Jev**|You already use Jev and want it to handle multi-step browser tasks|Jev may control its own persistent Chrome profile or an extension-connected session; sign in to the session it actually controls|
 |**Edge + Playwright**|You use Edge and want to fill fields in batches|Built-in Playwright and a separate MCP server are different connections; one failing doesn't prove the other is unavailable|
 
@@ -237,7 +253,7 @@ These are selected fields. See [`config.example.json`](resume-autofill/examples/
 
 ```json
 {
-  "browser": { "mode": "edge-playwright" },
+  "browser": { "mode": "auto" },
   "actions": {
     "upload_resume": true,
     "upload_photo": true,
@@ -256,6 +272,8 @@ These are selected fields. See [`config.example.json`](resume-autofill/examples/
 ```
 
 `transport` is `browser` or `mcp`; `null` in the first-use example means no method has been chosen. Set `tracker.enabled` to `false` to disable tracking. Keep `待提交` as shown unless you explicitly configure different status values. More configuration and recovery details are in the [setup reference](resume-autofill/references/setup.md) (Chinese).
+
+`browser.mode: auto` checks the host's existing browser capabilities first. Choose `chrome-jev` or `edge-playwright` explicitly when connecting an external route.
 
 </details>
 
@@ -291,9 +309,9 @@ No guarantee. Custom date pickers, file choosers, site protections, and tool per
 
 ## Current status
 
-This public package generalizes the author's personal workflow by separating private configuration and documenting reusable procedures. It is currently a **Workflow Preview**, covering profile import, two browser routes, attachment handling, and Feishu table creation, reuse, and write recovery.
+This public package generalizes the author's personal workflow by separating private configuration and documenting reusable procedures. It is currently a **Workflow Preview**, covering profile import, host-provided browser tools and two external browser routes, attachment handling, and Feishu table creation, reuse, and write recovery.
 
-The skill format and configuration JSON have been checked. **The public package has not yet completed end-to-end verification of both browser routes, uploads, and initial Feishu table creation.** There is no background service, scheduled auto-submission, or unverified list of compatible sites. Feedback from one site you actually use is a useful place to start.
+The skill format, configuration JSON, and archive structure have been checked. **WorkBuddy / Doubao client import, browser routes, uploads, and initial Feishu table creation have not yet completed end-to-end verification for this public package.** There is no background service, scheduled auto-submission, or unverified list of compatible sites. Feedback from one site you actually use is a useful place to start.
 
 ## Contribute
 

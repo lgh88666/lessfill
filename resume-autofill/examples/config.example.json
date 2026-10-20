@@ -3,7 +3,7 @@
   "resume": { "source": null, "cached_path": null },
   "photo": { "source": null, "cached_path": null },
   "profile_path": "profile.md",
-  "browser": { "mode": "edge-playwright" },
+  "browser": { "mode": "auto" },
   "actions": {
     "upload_resume": true,
     "upload_photo": true,

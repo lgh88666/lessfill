@@ -1,9 +1,9 @@
 ---
 name: resume-autofill
-description: 根据用户提供的简历文件或链接填写招聘网申、上传简历和照片并登记飞书投递表。支持 Chrome＋Jev 和 Edge＋Playwright；首次使用可初始化私人资料及飞书表格，后续复用。默认允许保存，不自动提交申请。
+description: 根据用户提供的简历文件或链接填写招聘网申、上传简历和照片并登记飞书投递表。面向 WorkBuddy、豆包电脑版工作任务及其他有工具能力的 Agent；优先复用宿主浏览器，也可用 Chrome＋Jev 或 Edge＋Playwright。默认允许保存，不自动提交申请。
 license: MIT
 metadata:
-  requirements: File access and browser control through Jev or Playwright. Uploads require file transfer support. Feishu MCP is optional. Codex-specific APIs are not required.
+  requirements: File access and authorized browser control, built in or through Jev/Playwright. Uploads require file transfer support. Feishu MCP is optional. Host-specific APIs are not required.
 ---
 
 # 网申填写与投递记录
@@ -28,12 +28,13 @@ metadata:
 
 ## 选择浏览器
 
-用户本轮明确选择优先，其次按配置。支持两条路径，仅读所选路径的参考：
+用户本轮明确选择优先，其次按配置。`auto` 表示尚未指定外部路线：优先复用宿主已提供且能确认目标的浏览器/网页操作能力，不因 skill 安装成功就假定有工具。选定后记录实际能力，仅读所选路径的参考：
 
+- `host-native`：使用 [宿主浏览器](references/host-browser.md)，面向 WorkBuddy、豆包工作任务等桌面 Agent。
 - `chrome-jev`：使用 [Chrome＋Jev](references/chrome-jev.md)。
 - `edge-playwright`：使用 [Edge＋Playwright](references/edge-playwright.md)。
 
-首次未选择且已有有效目标连接时可直接复用；否则集中询问一次，与简历、照片、飞书初始化信息一起收集。不得以不同会话的登录页推断用户原会话未登录。只操作工具实际返回且已确认的网址及目标标签；找不到目标时按所选浏览器支持的导航方式打开。未保存页面不刷新、关闭或覆盖。一个接口失败不代表所有接口均不可用。
+首次未选择且已有有效目标连接时可直接复用；否则集中询问一次，与简历、照片、飞书初始化信息一起收集。宿主已能操作网页时，不要求普通用户额外安装 Jev/Playwright；只有缺少所需能力且用户愿意接入时才引导外部路线。不得以不同会话的登录页推断用户原会话未登录。只操作工具实际返回且已确认的网址及目标标签；找不到目标时按所选浏览器支持的导航方式打开。未保存页面不刷新、关闭或覆盖。一个接口失败不代表所有接口均不可用。
 
 ## 填写与权限
 

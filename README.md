@@ -8,6 +8,8 @@
 
 让 AI 根据你的简历填写网申、上传附件，再把每次申请记录进你的求职表格。
 
+面向 **WorkBuddy、豆包电脑版「工作任务／技能」** 的使用场景，也提供其他 Agent 的调用方式。
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)](LICENSE)
 [![Type: Agent Skill](https://img.shields.io/badge/Type-Agent_Skill-7c3aed?style=flat-square)](resume-autofill/SKILL.md)
 [![Status: Workflow Preview](https://img.shields.io/badge/Status-Workflow_Preview-d97706?style=flat-square)](#目前能做到什么)
@@ -43,7 +45,7 @@ LessFill 使用 [Agent Skills](https://agentskills.io/specification) 目录格�
 |简历文件路径或可访问链接|提取填表需要的资料，后续复用；你的修正优先于旧简历|
 |照片文件，可选|在页面要求且工具支持时上传，不用简历截图冒充证件照|
 |招聘链接|识别公司、岗位和字段，按区块填写，避免重复添加经历|
-|浏览器选择|使用 Chrome＋Jev 或 Edge＋Playwright，复用对应会话|
+|浏览器选择|优先复用工作任务已有网页能力，也可接入 Chrome＋Jev 或 Edge＋Playwright|
 |飞书方式选择|首次授权后建表，后续把申请写进同一张表|
 
 默认会上传已授权的简历和照片、保存草稿。**默认不会最终提交申请，也不会替你处理验证码或签名。** 没有依据的信息会留空或询问，不会为了填满表单编造经历、成绩和日期。
@@ -54,6 +56,20 @@ LessFill 使用 [Agent Skills](https://agentskills.io/specification) 目录格�
 
 项目名称是 LessFill，安装后的 skill 名称为 `resume-autofill`，下方示例可直接使用。
 
+**用 WorkBuddy 或豆包电脑版？先从这里开始，无需先学命令行。**
+
+|你使用的工具|从哪里开始|
+|:---|:---|
+|**WorkBuddy**|[下载 WorkBuddy 技能包](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-workbuddy.zip)，在「技能 → 添加技能 → 上传技能」导入并启用|
+|**豆包电脑版 · 工作任务／技能**|[下载通用技能包](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip)，按当前版本的技能导入或创建入口加载；[查看具体说明](docs/workbuddy-doubao.md#豆包电脑版工作任务技能)|
+
+两种方式都需要当前任务有实际的网页编辑、文件读取和附件上传能力。**导入成功不代表已经能操作招聘网站**；Agent 会先检查可用工具。豆包的本地技能导入入口随版本变化，本项目尚未完成客户端导入和填表实测，不把普通豆包聊天当作可直接执行的环境。
+
+[WorkBuddy／豆包上手说明](docs/workbuddy-doubao.md) · [下载页与版本说明](https://github.com/lgh88666/lessfill/releases/tag/v0.1.0-preview.1)
+
+<details>
+<summary><strong>其他 Agent：命令行安装、手动安装和直接调用</strong></summary>
+
 **跨 Agent 安装**，有 Node.js 环境时可以使用 [Skills CLI](https://www.skills.sh/docs/cli)，按提示选择目标 Agent 和安装范围：
 
 ```sh
@@ -61,9 +77,6 @@ npx skills add lgh88666/lessfill
 ```
 
 这是可选的第三方安装工具，不是运行依赖。
-
-<details>
-<summary><strong>各 Agent 的手动安装与通用调用方式</strong></summary>
 
 也可下载仓库，按对应 Agent 的官方文档放置整个 `resume-autofill/` 目录：
 
@@ -105,7 +118,9 @@ DeepSeek 等模型可以通过具备这些工具的 harness 执行流程；仅�
 
 ### 2. 准备一个浏览器连接
 
-选择你已经在使用的一条路线即可：
+WorkBuddy、豆包工作任务用户，先让 Agent 检查当前任务已有的浏览器或网页操作工具。已有能力就直接使用，不需要为了 LessFill 额外装一套连接。
+
+当前任务缺少浏览器能力、且你愿意接入时，再选择外部路线：
 
 - **Chrome＋Jev**：配置好 Jev，在它实际控制的 Chrome 会话登录招聘网站。
 - **Edge＋Playwright**：连接你现有的 Edge；宿主有可用的内置 Playwright 时可直接复用，使用独立 MCP 扩展时可能需要首次选页。
@@ -121,7 +136,7 @@ DeepSeek 等模型可以通过具备这些工具的 harness 执行流程；仅�
 
 简历：<本地简历路径或下载链接>
 照片：<本地照片路径或下载链接，没有可暂不提供>
-浏览器：Edge＋Playwright
+浏览器：优先使用当前工作任务已授权的网页操作能力
 飞书：通过浏览器操作，不接入飞书 MCP
 
 允许把所提供资料填入该招聘网站，上传简历和照片，并保存草稿。
@@ -174,6 +189,7 @@ DeepSeek 等模型可以通过具备这些工具的 harness 执行流程；仅�
 
 |路线|适合的情况|先了解这一点|
 |:---|:---|:---|
+|**宿主已有浏览器工具**|使用 WorkBuddy、豆包工作任务等桌面 Agent|先检查实际网页编辑和上传能力；能读网页内容不代表能替你填写|
 |**Chrome＋Jev**|已经使用 Jev，希望把多步页面操作交给它|Jev 可能控制独立的持久 Chrome，也可能通过扩展连接；登录要在实际受控会话完成|
 |**Edge＋Playwright**|平时用 Edge，希望按字段批量填写|内置 Playwright 与独立 MCP 是不同连接；其中一个失败，不代表另一个也不可用|
 
@@ -234,7 +250,7 @@ Skill 优先用字段接口成批填写，特殊控件才局部使用截图或�
 
 ```json
 {
-  "browser": { "mode": "edge-playwright" },
+  "browser": { "mode": "auto" },
   "actions": {
     "upload_resume": true,
     "upload_photo": true,
@@ -253,6 +269,8 @@ Skill 优先用字段接口成批填写，特殊控件才局部使用截图或�
 ```
 
 `transport` 可以是 `browser` 或 `mcp`；首次示例里的 `null` 表示尚未选择。想关闭记录，将 `tracker.enabled` 设为 `false`。其他设置及恢复流程见[首次使用说明](resume-autofill/references/setup.md)。
+
+`browser.mode: auto` 优先检查当前宿主已有浏览器能力；明确使用外部路线时可改成 `chrome-jev` 或 `edge-playwright`。
 
 </details>
 
@@ -288,9 +306,9 @@ Skill 优先用字段接口成批填写，特殊控件才局部使用截图或�
 
 ## 目前能做到什么
 
-公开版是在上述个人使用经验的基础上，拆出私人配置、补充通用流程后整理而成。目前是 **Workflow Preview**：包含资料导入、两种浏览器路径、附件上传约定，以及飞书首次建表、后续复用和写入恢复流程。
+公开版是在上述个人使用经验的基础上，拆出私人配置、补充通用流程后整理而成。目前是 **Workflow Preview**：包含资料导入、宿主浏览器及两种外部浏览器路径、附件上传约定，以及飞书首次建表、后续复用和写入恢复流程。
 
-当前版本已做 skill 格式及配置 JSON 校验，**尚未完成公开版两条浏览器路径、附件上传和飞书建表的完整端到端验证**。仓库没有后台服务、定时自动投递或未经验证的网站兼容清单。欢迎从你实际使用的一个招聘站点开始反馈。
+当前版本已做 skill 格式、配置 JSON 和技能包结构校验，**尚未完成 WorkBuddy／豆包客户端导入、各浏览器路径、附件上传和飞书建表的完整端到端验证**。仓库没有后台服务、定时自动投递或未经验证的网站兼容清单。欢迎从你实际使用的一个招聘站点开始反馈。
 
 ## 参与改进
 
