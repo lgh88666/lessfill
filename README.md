@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="docs/assets/hero.svg" alt="Resume Autofill — 从简历，到网申，再到投递记录" width="100%" />
+<img src="docs/assets/hero.svg" alt="LessFill — 少填一点，把时间留给面试" width="100%" />
 
-# Resume Autofill
+# LessFill
 
 **少填几遍简历，多留一点时间准备面试。**
 
@@ -24,7 +24,7 @@
 
 换一个招聘官网，教育经历、实习、项目、奖项又要填一遍。附件传完了，还得想起来把投递记录补上。
 
-Resume Autofill 把这些重复步骤整理成一套可复用的 Agent Skill。你提供简历、照片和招聘链接，AI 按页面的实际字段填写，能保存的先保存；最后一遍检查和正式提交，留给你。
+LessFill 把这些重复步骤整理成一套可复用的 Agent Skill。你提供简历、照片和招聘链接，AI 按页面的实际字段填写，能保存的先保存；最后一遍检查和正式提交，留给你。
 
 它是一套供 AI 工具执行的工作流程。**需要你的 AI 工具具备文件读取、浏览器控制等能力，安装 skill 不会自动安装浏览器插件或开通账号。**
 
@@ -44,11 +44,13 @@ Resume Autofill 把这些重复步骤整理成一套可复用的 Agent Skill。�
 
 ### 1. 安装 skill
 
+项目名称是 LessFill，安装后的 skill 名称为 `resume-autofill`，下方示例可直接使用。
+
 **在 Codex 中**，可以把这句话发给支持技能安装的会话：
 
 ```text
 使用 skill-installer 安装：
-https://github.com/lgh88666/resume-autofill/tree/main/resume-autofill
+https://github.com/lgh88666/lessfill/tree/main/resume-autofill
 如果已有同名 skill，请先告诉我，不要覆盖。
 ```
 
@@ -215,7 +217,7 @@ Skill 优先用字段接口成批填写，特殊控件才局部使用截图或�
 
 ## 参与改进
 
-遇到卡住的页面，可以[提交 Issue](https://github.com/lgh88666/resume-autofill/issues/new/choose)，说明使用的 AI 工具、浏览器路线、卡在哪一步，以及去掉个人信息后的错误提示。不要附真实简历、完整私人配置、身份证号、cookie 或密钥。
+遇到卡住的页面，可以[提交 Issue](https://github.com/lgh88666/lessfill/issues/new/choose)，说明使用的 AI 工具、浏览器路线、卡在哪一步，以及去掉个人信息后的错误提示。不要附真实简历、完整私人配置、身份证号、cookie 或密钥。
 
 欢迎改进字段映射、连接提示、上传流程和文档。提交 PR 时说明解决了什么实际问题，以及是否在真实页面验证；未验证的部分请直接注明。
 
