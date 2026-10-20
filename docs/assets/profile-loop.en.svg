@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="430" viewBox="0 0 1280 430" role="img" aria-labelledby="title desc">
+  <title id="title">Ask once. Reuse next time.</title>
+  <desc id="desc">The agent asks about a missing fact, saves your confirmed answer to profile.md, and reuses it next time.</desc>
+  <defs>
+    <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#f8fafc" /><stop offset="1" stop-color="#eef2ff" /></linearGradient>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M1 1l5 3-5 3" fill="none" stroke="#818cf8" stroke-width="1.5" /></marker>
+  </defs>
+  <rect width="1280" height="430" rx="22" fill="url(#bg)" />
+  <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
+    <text x="48" y="52" fill="#0f172a" font-size="28" font-weight="700">Ask once. Reuse next time.</text>
+    <text x="48" y="83" fill="#64748b" font-size="15">Start with your resume. Add confirmed details as real applications reveal what is missing.</text>
+    <g fill="white" stroke="#e2e8f0"><rect x="48" y="112" width="352" height="220" rx="16" /><rect x="464" y="112" width="352" height="220" rx="16" stroke="#c7d2fe" /><rect x="880" y="112" width="352" height="220" rx="16" /></g>
+    <path d="M416 222h30" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)" />
+    <path d="M832 222h30" fill="none" stroke="#818cf8" stroke-width="2" marker-end="url(#arrow)" />
+    <text x="70" y="147" fill="#6366f1" font-size="12" font-weight="600">01 / ANSWER A REAL QUESTION</text>
+    <rect x="70" y="166" width="308" height="66" rx="11" fill="#f1f5f9" />
+    <text x="84" y="190" fill="#64748b" font-size="12">Agent</text>
+    <text x="84" y="214" fill="#1e293b" font-size="16">Which department was it?</text>
+    <rect x="118" y="244" width="260" height="64" rx="11" fill="#eef2ff" />
+    <text x="132" y="267" fill="#4f46e5" font-size="12">You</text>
+    <text x="132" y="291" fill="#3730a3" font-size="15">R&amp;D. Save it to my profile.</text>
+    <text x="486" y="147" fill="#6366f1" font-size="12" font-weight="600">02 / UPDATE YOUR PRIVATE PROFILE</text>
+    <rect x="486" y="166" width="308" height="142" rx="11" fill="#111827" />
+    <circle cx="504" cy="185" r="3" fill="#818cf8" />
+    <text x="516" y="190" fill="#c7d2fe" font-size="13" font-family="Consolas, monospace">profile.md</text>
+    <path d="M500 202h280" stroke="#334155" />
+    <text x="502" y="228" fill="#e2e8f0" font-size="15">Internship / matching entry</text>
+    <text x="502" y="254" fill="#a5b4fc" font-size="15">Department: R&amp;D</text>
+    <text x="502" y="286" fill="#94a3b8" font-size="11">Source: your confirmation. Updated as needed.</text>
+    <text x="902" y="147" fill="#6366f1" font-size="12" font-weight="600">03 / REUSE IT NEXT TIME</text>
+    <text x="902" y="187" fill="#475569" font-size="13">Internship department</text>
+    <rect x="902" y="199" width="308" height="45" rx="9" fill="#f8fafc" stroke="#e2e8f0" />
+    <text x="916" y="228" fill="#1e293b" font-size="16">R&amp;D</text>
+    <circle cx="1186" cy="221" r="10" fill="#dcfce7" />
+    <path d="M1181 221l3 3 6-7" fill="none" stroke="#16a34a" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    <text x="902" y="280" fill="#475569" font-size="14">Read first. Reuse known answers.</text>
+    <text x="902" y="303" fill="#94a3b8" font-size="12">Ask about unknowns. Never guess.</text>
+    <path d="M1056 346v16a10 10 0 0 1-10 10H234a10 10 0 0 1-10-10v-13" fill="none" stroke="#a5b4fc" stroke-width="1.5" stroke-dasharray="5 5" marker-end="url(#arrow)" />
+    <rect x="470" y="358" width="340" height="27" rx="13" fill="#eef2ff" />
+    <text x="640" y="376" text-anchor="middle" fill="#6366f1" font-size="12">New gap. Confirmed answer. Saved fact.</text>
+    <text x="640" y="408" text-anchor="middle" fill="#64748b" font-size="12">Save confirmed, reusable facts. Keep role-specific answers separate. All details shown are fictional.</text>
+  </g>
+</svg>
