@@ -63,7 +63,7 @@ npx skills add lgh88666/lessfill
 这是可选的第三方安装工具，不是运行依赖。
 
 <details>
-<summary><strong>手动安装、Codex 安装，以及没有原生 Skill 功能的 Agent</strong></summary>
+<summary><strong>各 Agent 的手动安装与通用调用方式</strong></summary>
 
 也可下载仓库，按对应 Agent 的官方文档放置整个 `resume-autofill/` 目录：
 
@@ -72,28 +72,29 @@ npx skills add lgh88666/lessfill
 |[Claude Code](https://code.claude.com/docs/en/skills)|项目内 `.claude/skills/resume-autofill/`，可用 `/resume-autofill` 调用|
 |[Cursor](https://cursor.com/docs/skills)|项目内 `.cursor/skills/resume-autofill/`，由 Agent 加载使用|
 |[OpenCode](https://opencode.ai/docs/skills/)|项目内 `.opencode/skills/resume-autofill/`，由技能工具加载|
-|Codex|使用下面的 `skill-installer` 入口，或放进已配置的技能目录|
+|[Codex](https://learn.chatgpt.com/docs/build-skills)|通过其技能安装器安装，或放进已配置的技能目录|
 |其他 / 自建 Agent|原生加载 Agent Skills，或按下方通用提示直接读取文件|
 
 表中是各客户端公开的加载方式，不代表本项目已经完成这些客户端的端到端实测。浏览器和附件能力需要分别接好。
 
-**在 Codex 中**，可以把这句话发给支持技能安装的会话：
+**让你的 Agent 协助安装**，可以把这段话发给支持文件操作或技能安装的会话：
 
 ```text
-使用 skill-installer 安装：
+请按你当前工具支持的技能安装方式，安装这个 skill：
 https://github.com/lgh88666/lessfill/tree/main/resume-autofill
 如果已有同名 skill，请先告诉我，不要覆盖。
+如果没有原生技能安装功能，请告诉我如何下载并直接读取 SKILL.md。
 ```
 
-**使用其他 AI 工具**，下载本仓库，将 [`resume-autofill/`](resume-autofill/) 放进该工具支持的技能目录。实际入口是 [`SKILL.md`](resume-autofill/SKILL.md)；支持读取本地文件的 agent 也可以按你的指示读取它。Codex 的界面元数据位于 `agents/openai.yaml`，其他工具可以忽略。
+**手动安装**时，下载本仓库，将整个 [`resume-autofill/`](resume-autofill/) 放进所用 Agent 支持的技能目录。实际入口是 [`SKILL.md`](resume-autofill/SKILL.md)，引用文件按相对路径加载；`agents/` 中的可选界面配置仅由识别它的宿主使用，不影响核心流程。
 
-安装方式以你的宿主工具为准。可参考 [OpenAI 的技能说明](https://learn.chatgpt.com/docs/build-skills)。
+安装位置和调用方式以所用 Agent 的官方文档为准。通用目录格式见 [Agent Skills 规范](https://agentskills.io/specification)。
 
 **不支持原生 skill 的 Agent**，也可以在下载后这样调用：
 
 ```text
 请读取 <本地仓库绝对路径>/resume-autofill/SKILL.md，并按需读取它引用的文件。
-使用你当前实际提供的文件工具和浏览器工具执行，不依赖 Codex 专用接口。
+将所需操作映射到你当前实际提供的文件工具和浏览器工具，不猜测工具名称或接口。
 先读取我的私人配置：<config.json 的路径；首次使用可省略>
 填写这个网申：<招聘网址>。允许上传及保存，不提交。
 ```
@@ -302,7 +303,7 @@ Skill 优先用字段接口成批填写，特殊控件才局部使用截图或�
 ```text
 resume-autofill/          # 可安装的 skill
 ├── SKILL.md             # 入口与核心流程
-├── agents/              # Codex UI 元数据
+├── agents/              # 宿主界面元数据（可选）
 ├── examples/            # 无真实个人信息的配置和资料示例
 └── references/          # 浏览器、上传及飞书的按需说明
 docs/assets/             # README 图示

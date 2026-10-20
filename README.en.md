@@ -63,7 +63,7 @@ npx skills add lgh88666/lessfill
 This third-party installer is optional, not a runtime dependency.
 
 <details>
-<summary><strong>Manual installation, Codex, and agents without a native skill loader</strong></summary>
+<summary><strong>Manual installation and invocation across agents</strong></summary>
 
 You can also download the repository and place the entire `resume-autofill/` folder according to your agent's documentation:
 
@@ -72,29 +72,30 @@ You can also download the repository and place the entire `resume-autofill/` fol
 |[Claude Code](https://code.claude.com/docs/en/skills)|Project directory `.claude/skills/resume-autofill/`; invoke with `/resume-autofill`|
 |[Cursor](https://cursor.com/docs/skills)|Project directory `.cursor/skills/resume-autofill/`; let the agent load it|
 |[OpenCode](https://opencode.ai/docs/skills/)|Project directory `.opencode/skills/resume-autofill/`; load through its skill tool|
-|Codex|Use `skill-installer` below or your configured skill directory|
+|[Codex](https://learn.chatgpt.com/docs/build-skills)|Use its skill installer or your configured skill directory|
 |Other / custom agents|Use native Agent Skills loading or the direct-file prompt below|
 
 These are documented loading methods, not claims of completed end-to-end testing for each client. Browser control and uploads still need their own working tools.
 
-**In Codex**, send this to a session that supports skill installation:
+**Ask your agent to install it** in a session that supports file operations or skill installation:
 
 ```text
-Use skill-installer to install:
+Install this skill using the installation method supported by your current tool:
 https://github.com/lgh88666/lessfill/tree/main/resume-autofill
 If a skill with the same name already exists, tell me before replacing it.
+If you have no native skill installer, explain how to download and read SKILL.md directly.
 ```
 
-**With another AI tool**, download this repository and put [`resume-autofill/`](resume-autofill/) in that tool's supported skill directory. [`SKILL.md`](resume-autofill/SKILL.md) is the entry point. An agent with local file access can also read it when you explicitly ask. `agents/openai.yaml` contains Codex UI metadata and can be ignored by other tools.
+**For manual installation**, download this repository and put the entire [`resume-autofill/`](resume-autofill/) folder in your agent's supported skill directory. [`SKILL.md`](resume-autofill/SKILL.md) is the entry point, with supporting files loaded through relative paths. Optional UI configuration in `agents/` is used only by hosts that recognize it; the core workflow does not depend on it.
 
-Follow your host tool's installation instructions. See also [OpenAI's skills guide](https://learn.chatgpt.com/docs/build-skills). The executable skill instructions and detailed references are currently maintained in Chinese; this README provides the complete English user guide.
+Follow your agent's official documentation for installation locations and invocation. See the [Agent Skills specification](https://agentskills.io/specification) for the shared directory format. The executable skill instructions and detailed references are currently maintained in Chinese; this README provides the complete English user guide.
 
 **If your agent has no native skill loader**, download the repository and use a prompt like this:
 
 ```text
 Read <absolute local repo path>/resume-autofill/SKILL.md,
 then read its referenced files only as needed.
-Use your available file and browser tools, without requiring Codex-specific APIs.
+Map the required actions to your available file and browser tools. Do not guess tool names or APIs.
 Read my private configuration: <config.json path; omit on first use>
 Fill this application: <application URL>. Uploads and saving are allowed. Do not submit.
 ```
@@ -305,7 +306,7 @@ Contributions to field mapping, connection guidance, uploads, and documentation 
 ```text
 resume-autofill/          # Installable skill
 ├── SKILL.md             # Entry point and core workflow
-├── agents/              # Codex UI metadata
+├── agents/              # Optional host-specific UI metadata
 ├── examples/            # Fictional profile and configuration examples
 └── references/          # Browser, attachment, and Feishu guidance
 docs/assets/             # README illustrations
