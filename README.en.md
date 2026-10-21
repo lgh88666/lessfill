@@ -8,7 +8,7 @@
 
 Let your AI agent fill application forms from your resume, upload attachments, and keep your applications in your own Feishu table.
 
-Designed around **WorkBuddy and Doubao desktop's Work Tasks / Skills** use cases, with loading options for other agents too.
+For **WorkBuddy, Doubao, Claude, Codex**, and other agents. Start with the tool you already use.
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)](LICENSE)
 [![Type: Agent Skill](https://img.shields.io/badge/Type-Agent_Skill-7c3aed?style=flat-square)](resume-autofill/SKILL.md)
@@ -56,14 +56,16 @@ By default, it can upload your authorized resume and photo and save drafts. **It
 
 The project is called LessFill. Its installed skill name is `resume-autofill`, which is used in the prompts below.
 
-**Using WorkBuddy or Doubao desktop? Start here. No command line is needed to follow these steps.**
+**Choose your tool and follow its entry point:**
 
 |Your tool|Start here|
 |:---|:---|
 |**WorkBuddy**|[Download the WorkBuddy package](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-workbuddy.zip), then import and enable it through Skills → Add Skill → Upload Skill|
-|**Doubao desktop · Work Tasks / Skills**|[Download the general package](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip) and use the import or creation entry available in your version; [read the walkthrough](docs/workbuddy-doubao.en.md#doubao-desktop-work-tasks--skills)|
+|**Doubao**|[Download the general package](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip) and use the import or creation entry available in your version; [read the walkthrough](docs/workbuddy-doubao.en.md#doubao-desktop-work-tasks--skills)|
+|**Claude**|Use [Claude Code skills](https://code.claude.com/docs/en/skills): place the folder at `.claude/skills/resume-autofill/` in your project and invoke `/resume-autofill`|
+|**Codex**|Follow its [skill installation guide](https://learn.chatgpt.com/docs/build-skills), using the installer or a configured skill directory to load `resume-autofill`|
 
-Both require actual webpage editing, file access, and upload tools in the current task. **Importing a skill does not provide those tools automatically.** Doubao's local import entry can vary by version; client import and form filling have not been verified for this package. Ordinary Doubao chat is not presented as an execution environment.
+Each platform requires actual webpage editing, file access, and upload tools in the current task. **Importing a skill does not provide those tools automatically.** Skill entry points and permissions vary by version; follow the linked instructions. Client import and form filling have not been verified across all these clients for this package.
 
 [WorkBuddy / Doubao walkthrough](docs/workbuddy-doubao.en.md) · [Downloads and version notes](https://github.com/lgh88666/lessfill/releases/tag/v0.1.0-preview.1)
 
@@ -82,10 +84,8 @@ You can also download the repository and place the entire `resume-autofill/` fol
 
 |Agent / method|Where to place it or how to invoke it|
 |:---|:---|
-|[Claude Code](https://code.claude.com/docs/en/skills)|Project directory `.claude/skills/resume-autofill/`; invoke with `/resume-autofill`|
 |[Cursor](https://cursor.com/docs/skills)|Project directory `.cursor/skills/resume-autofill/`; let the agent load it|
 |[OpenCode](https://opencode.ai/docs/skills/)|Project directory `.opencode/skills/resume-autofill/`; load through its skill tool|
-|[Codex](https://learn.chatgpt.com/docs/build-skills)|Use its skill installer or your configured skill directory|
 |Other / custom agents|Use native Agent Skills loading or the direct-file prompt below|
 
 These are documented loading methods, not claims of completed end-to-end testing for each client. Browser control and uploads still need their own working tools.
@@ -119,7 +119,7 @@ Models such as DeepSeek can follow this workflow through a harness that provides
 
 ### 2. Connect a browser
 
-In WorkBuddy or Doubao Work Tasks, first let the agent check its already authorized browser or webpage tools. If they work, no extra connection is needed just for LessFill.
+First let your chosen agent check its already authorized browser or webpage tools. If they work, no extra connection is needed just for LessFill.
 
 If browser control is missing and you choose to connect an external tool, use a route that fits your setup:
 
@@ -192,7 +192,7 @@ These are useful details to fill in over time:
 
 |Route|A good fit when|What to know first|
 |:---|:---|:---|
-|**Host-provided browser tools**|You use a desktop agent such as WorkBuddy or Doubao Work Tasks|Check actual editing and upload capabilities; reading a page is not the same as filling it|
+|**Host-provided browser tools**|You use an agent such as WorkBuddy or Doubao with webpage tools available in the current task|Check actual editing and upload capabilities; reading a page is not the same as filling it|
 |**Chrome + Jev**|You already use Jev and want it to handle multi-step browser tasks|Jev may control its own persistent Chrome profile or an extension-connected session; sign in to the session it actually controls|
 |**Edge + Playwright**|You use Edge and want to fill fields in batches|Built-in Playwright and a separate MCP server are different connections; one failing doesn't prove the other is unavailable|
 

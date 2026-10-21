@@ -8,7 +8,7 @@
 
 让 AI 根据你的简历填写网申、上传附件，再把每次申请记录进你的求职表格。
 
-面向 **WorkBuddy、豆包电脑版「工作任务／技能」** 的使用场景，也提供其他 Agent 的调用方式。
+面向 **WorkBuddy、豆包、Claude、Codex** 等 Agent，按你习惯的工具开始使用。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-2563eb?style=flat-square)](LICENSE)
 [![Type: Agent Skill](https://img.shields.io/badge/Type-Agent_Skill-7c3aed?style=flat-square)](resume-autofill/SKILL.md)
@@ -56,14 +56,16 @@ LessFill 使用 [Agent Skills](https://agentskills.io/specification) 目录格�
 
 项目名称是 LessFill，安装后的 skill 名称为 `resume-autofill`，下方示例可直接使用。
 
-**用 WorkBuddy 或豆包电脑版？先从这里开始，无需先学命令行。**
+**选择你使用的工具，按对应入口开始：**
 
 |你使用的工具|从哪里开始|
 |:---|:---|
 |**WorkBuddy**|[下载 WorkBuddy 技能包](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-workbuddy.zip)，在「技能 → 添加技能 → 上传技能」导入并启用|
-|**豆包电脑版 · 工作任务／技能**|[下载通用技能包](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip)，按当前版本的技能导入或创建入口加载；[查看具体说明](docs/workbuddy-doubao.md#豆包电脑版工作任务技能)|
+|**豆包**|[下载通用技能包](https://github.com/lgh88666/lessfill/releases/download/v0.1.0-preview.1/lessfill-skill.zip)，按当前版本的技能导入或创建入口加载；[查看具体说明](docs/workbuddy-doubao.md#豆包电脑版工作任务技能)|
+|**Claude**|使用 [Claude Code 技能入口](https://code.claude.com/docs/en/skills)，将技能目录放到项目内 `.claude/skills/resume-autofill/`，通过 `/resume-autofill` 调用|
+|**Codex**|按 [技能安装说明](https://learn.chatgpt.com/docs/build-skills) 使用安装器或已配置的技能目录，加载 `resume-autofill`|
 
-两种方式都需要当前任务有实际的网页编辑、文件读取和附件上传能力。**导入成功不代表已经能操作招聘网站**；Agent 会先检查可用工具。豆包的本地技能导入入口随版本变化，本项目尚未完成客户端导入和填表实测，不把普通豆包聊天当作可直接执行的环境。
+各平台都需要当前任务有实际的网页编辑、文件读取和附件上传能力。**导入成功不代表已经能操作招聘网站**；Agent 会先检查可用工具。不同版本的技能入口和权限可能不同，具体要求见对应说明，本项目尚未完成各客户端的导入和填表实测。
 
 [WorkBuddy／豆包上手说明](docs/workbuddy-doubao.md) · [下载页与版本说明](https://github.com/lgh88666/lessfill/releases/tag/v0.1.0-preview.1)
 
@@ -82,10 +84,8 @@ npx skills add lgh88666/lessfill
 
 |Agent / 使用方式|放置或调用方式|
 |:---|:---|
-|[Claude Code](https://code.claude.com/docs/en/skills)|项目内 `.claude/skills/resume-autofill/`，可用 `/resume-autofill` 调用|
 |[Cursor](https://cursor.com/docs/skills)|项目内 `.cursor/skills/resume-autofill/`，由 Agent 加载使用|
 |[OpenCode](https://opencode.ai/docs/skills/)|项目内 `.opencode/skills/resume-autofill/`，由技能工具加载|
-|[Codex](https://learn.chatgpt.com/docs/build-skills)|通过其技能安装器安装，或放进已配置的技能目录|
 |其他 / 自建 Agent|原生加载 Agent Skills，或按下方通用提示直接读取文件|
 
 表中是各客户端公开的加载方式，不代表本项目已经完成这些客户端的端到端实测。浏览器和附件能力需要分别接好。
@@ -118,7 +118,7 @@ DeepSeek 等模型可以通过具备这些工具的 harness 执行流程；仅�
 
 ### 2. 准备一个浏览器连接
 
-WorkBuddy、豆包工作任务用户，先让 Agent 检查当前任务已有的浏览器或网页操作工具。已有能力就直接使用，不需要为了 LessFill 额外装一套连接。
+先让你使用的 Agent 检查当前任务已有的浏览器或网页操作工具。已有能力就直接使用，不需要为了 LessFill 额外装一套连接。
 
 当前任务缺少浏览器能力、且你愿意接入时，再选择外部路线：
 
@@ -189,7 +189,7 @@ WorkBuddy、豆包工作任务用户，先让 Agent 检查当前任务已有的�
 
 |路线|适合的情况|先了解这一点|
 |:---|:---|:---|
-|**宿主已有浏览器工具**|使用 WorkBuddy、豆包工作任务等桌面 Agent|先检查实际网页编辑和上传能力；能读网页内容不代表能替你填写|
+|**宿主已有浏览器工具**|使用 WorkBuddy、豆包等 Agent，且当前任务已有网页工具|先检查实际网页编辑和上传能力；能读网页内容不代表能替你填写|
 |**Chrome＋Jev**|已经使用 Jev，希望把多步页面操作交给它|Jev 可能控制独立的持久 Chrome，也可能通过扩展连接；登录要在实际受控会话完成|
 |**Edge＋Playwright**|平时用 Edge，希望按字段批量填写|内置 Playwright 与独立 MCP 是不同连接；其中一个失败，不代表另一个也不可用|
 
