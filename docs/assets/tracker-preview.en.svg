@@ -5,8 +5,6 @@
   <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, Noto Sans CJK SC, sans-serif">
     <text x="48" y="52" fill="#0f172a" font-size="28" font-weight="700">Every application has a clear status.</text>
     <text x="48" y="82" fill="#64748b" font-size="15">Your agent helps fill the form. You review and submit. Then update the same record.</text>
-    <rect x="1098" y="32" width="134" height="28" rx="14" fill="#e0e7ff" />
-    <text x="1165" y="51" text-anchor="middle" fill="#4f46e5" font-size="12">ILLUSTRATION</text>
     <rect x="48" y="106" width="1184" height="204" rx="14" fill="white" stroke="#e2e8f0" />
     <path d="M62 106h1156a14 14 0 0 1 14 14v30H48v-30a14 14 0 0 1 14-14" fill="#eef2ff" />
     <path d="M48 150h1184m-1184 53h1184m-1184 53h1184" stroke="#e2e8f0" />
